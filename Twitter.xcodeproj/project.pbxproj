@@ -11,6 +11,8 @@
 		74648FB61F29AE0400FBCF83 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74648FB51F29AE0400FBCF83 /* UserCell.swift */; };
 		74648FB81F29BD6B00FBCF83 /* HomeDatasourceController+navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74648FB71F29BD6B00FBCF83 /* HomeDatasourceController+navbar.swift */; };
 		74648FBA1F29C57600FBCF83 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74648FB91F29C57600FBCF83 /* TweetCell.swift */; };
+		747EDFF91F2A709900F0A060 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747EDFF81F2A709900F0A060 /* Tweet.swift */; };
+		747EDFFC1F2A970300F0A060 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747EDFFB1F2A970300F0A060 /* Service.swift */; };
 		74948DB21F25A6FC001E9A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74948DB11F25A6FC001E9A64 /* AppDelegate.swift */; };
 		74948DB71F25A6FC001E9A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74948DB51F25A6FC001E9A64 /* Main.storyboard */; };
 		74948DB91F25A6FC001E9A64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74948DB81F25A6FC001E9A64 /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 		74648FB51F29AE0400FBCF83 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		74648FB71F29BD6B00FBCF83 /* HomeDatasourceController+navbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeDatasourceController+navbar.swift"; sourceTree = "<group>"; };
 		74648FB91F29C57600FBCF83 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		747EDFF81F2A709900F0A060 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		747EDFFB1F2A970300F0A060 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		74948DAE1F25A6FC001E9A64 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74948DB11F25A6FC001E9A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74948DB61F25A6FC001E9A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +66,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		747EDFFA1F2A96EC00F0A060 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				747EDFFB1F2A970300F0A060 /* Service.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		74948DA51F25A6FC001E9A64 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +95,7 @@
 		74948DB01F25A6FC001E9A64 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				747EDFFA1F2A96EC00F0A060 /* Service */,
 				74E72B721F26FD7600AB3B4D /* View */,
 				74E72B711F26FD6B00AB3B4D /* Model */,
 				74E72B701F26FD5B00AB3B4D /* Controller */,
@@ -110,6 +123,7 @@
 			children = (
 				74E72B6C1F26FC1900AB3B4D /* HomeDatasource.swift */,
 				74648FB31F29494C00FBCF83 /* User.swift */,
+				747EDFF81F2A709900F0A060 /* Tweet.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -258,12 +272,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				74E72B671F26EB9200AB3B4D /* HomeDatasourceController.swift in Sources */,
+				747EDFF91F2A709900F0A060 /* Tweet.swift in Sources */,
 				74648FBA1F29C57600FBCF83 /* TweetCell.swift in Sources */,
 				74948DB21F25A6FC001E9A64 /* AppDelegate.swift in Sources */,
 				74648FB41F29494C00FBCF83 /* User.swift in Sources */,
 				74948DC41F25A998001E9A64 /* HomeController.swift in Sources */,
 				74E72B6D1F26FC1900AB3B4D /* HomeDatasource.swift in Sources */,
 				74648FB81F29BD6B00FBCF83 /* HomeDatasourceController+navbar.swift in Sources */,
+				747EDFFC1F2A970300F0A060 /* Service.swift in Sources */,
 				74E72B6F1F26FC4300AB3B4D /* UserHeaderFooter.swift in Sources */,
 				74648FB61F29AE0400FBCF83 /* UserCell.swift in Sources */,
 			);

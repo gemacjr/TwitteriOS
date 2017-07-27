@@ -58,7 +58,7 @@ class UserCell: DatasourceCell {
     }()
     
     let followButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         
         button.layer.cornerRadius = 5
         button.layer.borderColor = twitterBlue.cgColor

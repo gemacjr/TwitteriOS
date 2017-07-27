@@ -7,19 +7,40 @@
 //
 
 import LBTAComponents
+import TRON
+import SwiftyJSON
 
-class HomeDatasource: Datasource {
+class HomeDatasource: Datasource, JSONDecodable {
     
-    let users: [User] = {
-        let brianUser = User(name: "Ed McCormic", username: "@swiftbeard", bioText: "Kale chips listicle tousled kinfolk street art artisan. Fanny pack keytar thundercats readymade trust fund. Dreamcatcher migas glossier schlitz ennui. Poke franzen slow-carb, everyday carry XOXO man bun readymade chicharrones +1.", profileImage: #imageLiteral(resourceName: "profile_image"))
-        let rayUser = User(name: "Ray Wenderlich", username: "@rwendelich", bioText: "Kale chips listicle tousled kinfolk street art artisan. Fanny pack keytar thundercats readymade trust fund. Dreamcatcher migas glossier schlitz ennui.", profileImage: #imageLiteral(resourceName: "ray_profile_image"))
-        
-        let kindleUser = User(name: "Katy Mac", username: "@kmccormic", bioText: "Kale chips listicle tousled kinfolk street art artisan. Fanny pack keytar thundercats readymade trust fund. Dreamcatcher migas glossier schlitz ennui. Fanny pack keytar thundercats readymade trust fund. Dreamcatcher migas glossier schlitz ennui.", profileImage: #imageLiteral(resourceName: "ray_profile_image"))
-        
-        return [brianUser, rayUser, kindleUser]
-    }()
+    let users: [User]
     
-    let tweets = ["tweet1", "tweet2"]
+    required init(json: JSON) throws {
+        
+        let userJsonarray = json["users"].array
+        self.users = userJsonarray!.map{return User(json: $0)}
+
+        var tweets = [Tweet]()
+        let tweetsJsonArray = json["tweets"].array
+        
+        
+        for  tweetJson in tweetsJsonArray! {
+            print(tweetJson)
+            
+            let userJson = tweetJson["user"]
+            let user = User(json: userJson)
+            
+            let message = tweetJson["message"].stringValue
+            
+            let tweet = Tweet(user: user, message: message)
+            tweets.append(tweet)
+            
+        }
+        
+        self.tweets = tweets
+    }
+    
+    
+    let tweets: [Tweet]
     
     override func footerClasses() -> [DatasourceCell.Type]? {
         return [UserFooter.self]
@@ -34,6 +55,10 @@ class HomeDatasource: Datasource {
     }
     
     override func item(_ indexPath: IndexPath) -> Any? {
+        
+        if indexPath.section == 1 {
+            return tweets[indexPath.item]
+        }
         return users[indexPath.item]
     }
     
