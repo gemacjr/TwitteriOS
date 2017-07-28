@@ -26,6 +26,11 @@ struct Service {
             
         }) { (err) in
             
+//            let err = err as? APIError<JSONError>
+//            err?.response?.statusCode
+            
+            
+            
             completion(nil, err)
             
         }

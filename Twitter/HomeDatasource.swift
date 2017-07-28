@@ -16,13 +16,11 @@ class HomeDatasource: Datasource, JSONDecodable {
     
     required init(json: JSON) throws {
         
-        guard let userJsonarray = json["users"].array else {
-            throw NSError(domain: "com.letsbuildthatapp", code: 1, userInfo: [NSLocalizedDescriptionKey: "'users' not valid in JSON"])
+        guard let userJsonarray = json["users"].array, let tweetsJsonArray = json["tweets"].array else {
+            throw NSError(domain: "com.letsbuildthatapp", code: 1, userInfo: [NSLocalizedDescriptionKey: "PArsing JSON was not valid"])
         }
         
-        guard let tweetsJsonArray = json["tweets"].array else {
-            throw NSError(domain: "com.letsbuildthatapp", code: 1, userInfo: [NSLocalizedDescriptionKey: "'tweets' not valid in JSON"])
-        }
+    
         
         self.users = userJsonarray.map{User(json: $0)}
         self.tweets = tweetsJsonArray.map{Tweet(json: $0)}
