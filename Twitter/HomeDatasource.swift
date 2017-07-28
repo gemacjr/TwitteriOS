@@ -24,6 +24,8 @@ class HomeDatasource: Datasource, JSONDecodable {
         
         self.users = userJsonarray.map{User(json: $0)}
         self.tweets = tweetsJsonArray.map{Tweet(json: $0)}
+        
+        
 
     }
     
