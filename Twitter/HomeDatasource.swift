@@ -16,29 +16,18 @@ class HomeDatasource: Datasource, JSONDecodable {
     
     required init(json: JSON) throws {
         
-        let userJsonarray = json["users"].array
-        self.users = userJsonarray!.map{return User(json: $0)}
-
-        var tweets = [Tweet]()
-        let tweetsJsonArray = json["tweets"].array
-        
-        
-        for  tweetJson in tweetsJsonArray! {
-            print(tweetJson)
-            
-            let userJson = tweetJson["user"]
-            let user = User(json: userJson)
-            
-            let message = tweetJson["message"].stringValue
-            
-            let tweet = Tweet(user: user, message: message)
-            tweets.append(tweet)
-            
+        guard let userJsonarray = json["users"].array else {
+            throw NSError(domain: "com.letsbuildthatapp", code: 1, userInfo: [NSLocalizedDescriptionKey: "'users' not valid in JSON"])
         }
         
-        self.tweets = tweets
+        guard let tweetsJsonArray = json["tweets"].array else {
+            throw NSError(domain: "com.letsbuildthatapp", code: 1, userInfo: [NSLocalizedDescriptionKey: "'tweets' not valid in JSON"])
+        }
+        
+        self.users = userJsonarray.map{User(json: $0)}
+        self.tweets = tweetsJsonArray.map{Tweet(json: $0)}
+
     }
-    
     
     let tweets: [Tweet]
     
